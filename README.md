@@ -1,11 +1,11 @@
 # Datasync
 This is a data sync tool that allows synchronization of source and replica folders periodically.
 
-# Prerequisites
+## Prerequisites
 * Install Python 3 from [Python.org](https://www.python.org/downloads/) 
 * git CLI tool
 
-# Usage
+## Usage
 
 1. Open terminal and checkout this repo using `git clone https://github.com/STEPHINRACHEL/datasync.git`
 2. From the root of the directory execute `python3 app.py -h` to list the argumets along with the description
