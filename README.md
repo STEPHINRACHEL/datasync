@@ -3,7 +3,7 @@ This is a data sync tool that allows synchronization of source and replica folde
 
 # Prerequisites
 * Install Python 3 from [Python.org](https://www.python.org/downloads/) 
-* git CLI
+* git CLI tool
 
 # Usage
 
@@ -14,4 +14,3 @@ This is a data sync tool that allows synchronization of source and replica folde
   ```
   python3 app.py --source data/source --replica data/replica --sync_interval 3 --log_file data/logs
   ```
-
