@@ -12,5 +12,5 @@ This is a data sync tool that allows synchronization of source and replica folde
 3. Run `python3 app.py --source <path-to-source-file> --replica <path-to-replica-file> --sync_interval <interval-in-seconds> --log_file <path-to-log-file>` <br />
   Example:  
   ```
-  python3 app.py --source data/source --replica data/replica --sync_interval 3 --log_file data/logs
+  python3 app.py --source data/source --replica data/replica --sync_interval 3 --log_file log/logs
   ```
