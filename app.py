@@ -1,6 +1,5 @@
 import argparse
 import time
-
 from synchronization import sync
 
 # Adding CLI arguments
