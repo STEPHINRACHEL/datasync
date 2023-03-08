@@ -1,11 +1,11 @@
-import hashlib
 import logging
 import os
 import shutil
+import time
 
 
 #Set up logging
-def getLogs(log_file):
+def get_logs(log_file):
     #save logs to the log_file
     logging.basicConfig(filename=log_file, encoding='utf-8',
                         level=logging.INFO,
@@ -19,9 +19,18 @@ def getLogs(log_file):
     ch.setFormatter(formatter)
     logging.getLogger().addHandler(ch)
 
+def is_modified(file_path, sync_interval):
+    current_time = time.time()
+    modified_time = os.path.getmtime(file_path)
+    if current_time - modified_time <  sync_interval:
+        return True
+    else:
+        return False
+
+
 
 # Synchronize source and replica folders
-def syncData(source, replica):
+def sync_data(source, replica, interval):
     source_items = set(os.listdir(source))
     replica_items = set(os.listdir(replica))
     
@@ -48,12 +57,15 @@ def syncData(source, replica):
                 os.remove(replica_path)
                 logging.info(f"File deleted {replica_path}")
 
-    # Recursively sync sub folders
+    # Update files if modified
     for item in source_items & replica_items:
         source_path = os.path.join(source, item)
         replica_path = os.path.join(replica, item)
-        if os.path.isdir(source_path):
-            syncData(source_path, replica_path)
-
-
+        if os.path.isfile(source_path):
+            if is_modified(source_path, interval):
+                shutil.copy2(source_path, replica_path)
+                logging.info(f"Updated file {replica_path}")
+        else:
+            # Recursively sync sub folders
+            sync_data(source_path, replica_path, interval)
 

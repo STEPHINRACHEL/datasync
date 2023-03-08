@@ -21,11 +21,11 @@ def main():
     replica = args.replica
     sync_interval = args.sync_interval
     log_file = args.log_file
-    sync.getLogs(log_file)
+    sync.get_logs(log_file)
     print("Synchronizing source folder to replica folder.....!")
     # Periodically execute the syncData() function at a specified interval
     while True:
-        sync.syncData(source, replica)
+        sync.sync_data(source, replica, sync_interval)
         time.sleep(sync_interval)
 
 
