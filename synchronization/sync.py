@@ -19,14 +19,15 @@ def get_logs(log_file):
     ch.setFormatter(formatter)
     logging.getLogger().addHandler(ch)
 
+
+# Check if the source file is modified
 def is_modified(file_path, sync_interval):
     current_time = time.time()
     modified_time = os.path.getmtime(file_path)
-    if current_time - modified_time <  sync_interval:
+    if current_time - modified_time < sync_interval:
         return True
     else:
         return False
-
 
 
 # Synchronize source and replica folders
