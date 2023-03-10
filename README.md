@@ -1,5 +1,5 @@
 # Datasync
-This is a data sync tool that allows synchronization of source and replica folders periodically at a specified interval.
+This is a one-way data sync tool that allows synchronization of source and replica folders periodically at a specified interval.
 
 ## Prerequisites
 * Install Python 3 from [Python.org](https://www.python.org/downloads/) 
